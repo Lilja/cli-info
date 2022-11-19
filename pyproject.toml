@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cli-info"
+name = "cli-tools-info"
 version = "1.0.0"
 description = ""
 authors = ["Erik Lilja <erik@rkllj.io>"]

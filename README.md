@@ -33,3 +33,6 @@ run(tools)
 * `tools: List[Tool]`
 * `headers: bool`, whether to use headers in the table formatted list
 * `table_fmt: Optional[str] = "simple"`, what table formatting to send to `tabulate`. See `tablefmt` in `tabulate`. Default `simple`.
+
+### Creator's `cli-info` file
+[link](https://github.com/Lilja/dotfiles/blob/master/bin/cli-info)

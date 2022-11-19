@@ -26,8 +26,6 @@ class Tool:
     wrap_with_fish: bool = False
 
 
-
-
 def color(*items):
     return ESC + ";".join(items) + ANSI_EXIT_CHAR
 
@@ -46,21 +44,8 @@ def run_cmd(tool: Tool) -> str:
 
 
 def success(msg1, msg2):
-    print(
-        CHECKMARK
-        + " "
-        + color(GREEN, BOLD)
-        + msg1
-        + RESET
-        + "\t"
-        + msg2
-    )
+    return [CHECKMARK + " " + color(GREEN, BOLD) + msg1 + RESET, msg2]
 
 
 def fail(msg1, msg2):
-    print(CROSS + " " + color(RED, BOLD) +  msg1 + RESET + "\t"  + msg2)
-
-
-
-
-
+    return [CROSS + " " + color(RED, BOLD) + msg1 + RESET, msg2]

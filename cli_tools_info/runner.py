@@ -1,7 +1,7 @@
 import re
 import shutil
 from typing import List
-from cli_info.utils import Tool, run_cmd, success, fail
+from cli_tools_info.utils import Tool, run_cmd, success, fail
 
 def _process_output_of_cmd(tool: Tool):
     output = run_cmd(tool)

@@ -5,7 +5,10 @@
 An overview of you cli tools, if they are installed and what version they are on.
 
 ## Usage
-Create a python file that has the following contents
+* pip install cli-tools-info
+
+* Create a python file that has the following contents
+
 ```python
 #!/usr/bin/env python
 from cli_tools_info import (
@@ -21,4 +24,4 @@ tools = [
 run(tools)
 ```
 
-Run your file, likely: `./file`. You should get an output of the tool you are using depending on if it's installed or not.
+* Run your file, likely: `./file`. You should get an output of the tool you are using depending on if it's installed or not.

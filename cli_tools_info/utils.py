@@ -1,6 +1,7 @@
 import os
 from typing import Optional
 from dataclasses import dataclass
+import asyncio
 
 ESC = "\033["
 RED = "1;31"
@@ -30,7 +31,7 @@ def color(*items):
     return ESC + ";".join(items) + ANSI_EXIT_CHAR
 
 
-def run_cmd(tool: Tool) -> str:
+async def run_cmd(tool: Tool) -> str:
     cmd = " ".join(
         [
             'fish -c "' if tool.wrap_with_fish else "",
@@ -40,7 +41,19 @@ def run_cmd(tool: Tool) -> str:
             "2>&1" if tool.pipe_stderr_to_stdout else "",
         ]
     )
-    return os.popen(cmd).read().strip()
+    proc = await asyncio.subprocess.create_subprocess_shell(
+        cmd=cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
+    )
+    stdout, stderr = await proc.communicate()
+    if stderr:
+        return stderr.decode("utf-8")
+    if stdout:
+        return stdout.decode("utf-8")
+
+    raise Exception("no stderr or stdout: " + tool.name)
+
 
 
 def success(msg1, msg2):

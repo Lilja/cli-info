@@ -36,3 +36,6 @@ run(tools)
 
 ### Creator's `cli-info` file
 [link](https://github.com/Lilja/dotfiles/blob/master/bin/cli-info)
+
+## Showcase of usage/workflow in vim
+[![asciicast](https://asciinema.org/a/538827.svg)](https://asciinema.org/a/538827)
